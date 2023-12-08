@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.CompanyDetailScreen">
+
+
+    <TextView
+        android:id="@+id/companyTextDetailSc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="Firma Adı"
+        android:textStyle="bold"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/iyimserlikValueTxtDetailSc"
+        android:layout_width="134dp"
+        android:layout_height="35dp"
+        android:text="1. Doğal Durum"
+        android:textStyle="bold"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="25dp"
+        android:paddingStart="8dp"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/companyTextDetailSc" />
+
+    <TextView
+        android:id="@+id/state1TxtDetailScreeb"
+        android:layout_width="134dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="70dp"
+        android:paddingStart="8dp"
+        android:text="1. Doğal Durum"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/iyimserlikValueTxtDetailSc"
+        app:layout_constraintTop_toBottomOf="@+id/companyTextDetailSc" />
+
+    <TextView
+        android:id="@+id/state2TxtDetailScreeb"
+        android:layout_width="134dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:paddingStart="8dp"
+        android:text="1. Doğal Durum"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/hurwiczValueTxtDetailSc"
+        app:layout_constraintTop_toBottomOf="@+id/state1TxtDetailScreeb" />
+
+    <TextView
+        android:id="@+id/state3TxtDetailScreeb"
+        android:layout_width="134dp"
+        android:layout_height="35dp"
+        android:paddingStart="8dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:text="1. Doğal Durum"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/esOlasilikValueTxtDetailSc"
+        app:layout_constraintTop_toBottomOf="@+id/state2TxtDetailScreeb" />
+
+    <TextView
+        android:id="@+id/kotumserlikValueTxtDetailSc"
+        android:layout_width="134dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="25dp"
+        android:paddingStart="8dp"
+        android:text="4. Doğal Durum"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/esOlasilikValueTxtDetailSc" />
+
+    <TextView
+        android:id="@+id/state4TxtDetailScreeb"
+        android:layout_width="134dp"
+        android:layout_height="35dp"
+        android:paddingStart="8dp"
+        android:text="4. Doğal Durum"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/kotumserlikValueTxtDetailSc"
+        app:layout_constraintTop_toBottomOf="@+id/state3TxtDetailScreeb" />
+
+    <TextView
+        android:id="@+id/esOlasilikValueTxtDetailSc"
+        android:layout_width="134dp"
+        android:layout_height="35dp"
+        android:text="3. Doğal Durum"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="25dp"
+        android:paddingStart="8dp"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hurwiczValueTxtDetailSc" />
+
+    <TextView
+        android:id="@+id/hurwiczValueTxtDetailSc"
+        android:layout_width="134dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="30dp"
+        android:paddingStart="8dp"
+        android:text="2. Doğal Durum"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iyimserlikValueTxtDetailSc" />
+</androidx.constraintlayout.widget.ConstraintLayout>

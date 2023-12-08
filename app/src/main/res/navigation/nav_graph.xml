@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeScreen">
+
+    <fragment
+        android:id="@+id/homeScreen"
+        android:name="com.ramazantiftik.decisionmakingtechniques.view.HomeScreen"
+        android:label="fragment_home_screen"
+        tools:layout="@layout/fragment_home_screen" >
+        <action
+            android:id="@+id/action_homeScreen_to_companyDetailScreen"
+            app:destination="@id/companyDetailScreen" />
+        <action
+            android:id="@+id/action_homeScreen_to_newCompanyScreen"
+            app:destination="@id/newCompanyScreen" />
+        <action
+            android:id="@+id/action_homeScreen_to_calculateScreen"
+            app:destination="@id/calculateScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/newCompanyScreen"
+        android:name="com.ramazantiftik.decisionmakingtechniques.view.NewCompanyScreen"
+        android:label="fragment_new_company_screen"
+        tools:layout="@layout/fragment_new_company_screen" />
+    <fragment
+        android:id="@+id/companyDetailScreen"
+        android:name="com.ramazantiftik.decisionmakingtechniques.view.CompanyDetailScreen"
+        android:label="fragment_company_detail_screen"
+        tools:layout="@layout/fragment_company_detail_screen" >
+        <argument
+            android:name="companyName"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/calculateScreen"
+        android:name="com.ramazantiftik.decisionmakingtechniques.view.CalculateScreen"
+        android:label="CalculateScreen" />
+</navigation>

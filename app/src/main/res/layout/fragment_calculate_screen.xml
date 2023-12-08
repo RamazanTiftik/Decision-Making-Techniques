@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.CompanyDetailScreen">
+
+
+    <TextView
+        android:id="@+id/companyTextCalculateSc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="Firma Adı"
+        android:textStyle="bold"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/iyimserlikValueTxtCalculateSc"
+        android:layout_width="134dp"
+        android:layout_height="30dp"
+        android:text="İyimserlik :"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="25dp"
+        android:paddingStart="8dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/companyTextCalculateSc" />
+
+    <TextView
+        android:id="@+id/iyimserlikValueTxtCalculateSc2"
+        android:layout_width="134dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="70dp"
+        android:paddingStart="8dp"
+        android:text=""
+        android:layout_marginLeft="20dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/iyimserlikValueTxtCalculateSc"
+        app:layout_constraintTop_toBottomOf="@+id/companyTextCalculateSc" />
+
+    <TextView
+        android:id="@+id/hurwiczValueTxtCalculateSc2"
+        android:layout_width="190dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:paddingStart="8dp"
+        android:text=""
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/iyimserlikValueTxtCalculateSc"
+        app:layout_constraintTop_toBottomOf="@+id/iyimserlikValueTxtCalculateSc2" />
+
+    <TextView
+        android:id="@+id/kotumserlikValueTxtCalculateSc2"
+        android:layout_width="134dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:paddingStart="8dp"
+        android:text=""
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/iyimserlikValueTxtCalculateSc"
+        app:layout_constraintTop_toBottomOf="@+id/esOlasilikValueTxtCalculateSc2" />
+
+    <TextView
+        android:id="@+id/esOlasilikValueTxtCalculateSc2"
+        android:layout_width="190dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:paddingStart="8dp"
+        android:text=""
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/iyimserlikValueTxtCalculateSc"
+        app:layout_constraintTop_toBottomOf="@+id/hurwiczValueTxtCalculateSc2" />
+
+    <TextView
+        android:id="@+id/kotumserlikValueTxtCalculateSc"
+        android:layout_width="136dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="25dp"
+        android:paddingStart="8dp"
+        android:text="Kötümserlik :"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/esOlasilikValueTxtCalculateSc" />
+
+    <TextView
+        android:id="@+id/alfaValueTxtCalculateSc"
+        android:layout_width="136dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="50dp"
+        android:paddingStart="8dp"
+        android:text="Alfa :"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kotumserlikValueTxtCalculateSc" />
+
+    <TextView
+        android:id="@+id/esOlasilikValueTxtCalculateSc"
+        android:layout_width="134dp"
+        android:layout_height="30dp"
+        android:text="Eş Olasılık :"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="25dp"
+        android:paddingStart="8dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hurwiczValueTxtCalculateSc" />
+
+    <TextView
+        android:id="@+id/hurwiczValueTxtCalculateSc"
+        android:layout_width="134dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="25dp"
+        android:paddingStart="8dp"
+        android:text="Hurwicz :"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iyimserlikValueTxtCalculateSc" />
+
+    <Button
+        android:id="@+id/positiveBtnCalSc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Getiri"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="70dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kotumserlikValueTxtCalculateSc" />
+
+    <Button
+        android:id="@+id/negativeBtnCalSc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Maliyet"
+        android:layout_marginTop="150dp"
+        android:layout_marginRight="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kotumserlikValueTxtCalculateSc" />
+
+    <EditText
+        android:id="@+id/alfaValueEdtTxtCalculateSc"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:hint="Alfa"
+        android:inputType="textPersonName"
+        android:textSize="20sp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="25dp"
+        app:layout_constraintStart_toEndOf="@+id/alfaValueTxtCalculateSc"
+        app:layout_constraintTop_toBottomOf="@+id/kotumserlikValueTxtCalculateSc2" />
+</androidx.constraintlayout.widget.ConstraintLayout>
