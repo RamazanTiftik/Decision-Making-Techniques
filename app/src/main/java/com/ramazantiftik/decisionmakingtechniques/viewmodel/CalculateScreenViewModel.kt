@@ -17,11 +17,6 @@ class CalculateScreenViewModel @Inject constructor(
 
     lateinit var companyDataList: LiveData<List<CompanyData>>
 
-    lateinit var s1List: LiveData<List<Int>>
-    lateinit var s2List: LiveData<List<Int>>
-    lateinit var s3List: LiveData<List<Int>>
-    lateinit var s4List: LiveData<List<Int>>
-
 
     fun getCompanyDataFromDB(): LiveData<List<CompanyData>> {
         viewModelScope.launch {
@@ -30,35 +25,5 @@ class CalculateScreenViewModel @Inject constructor(
         return companyDataList
     }
 
-
-
-    // funcs for pismanlik
-    fun getS1() : LiveData<List<Int>>{
-        viewModelScope.launch {
-            s1List=repository.getS1()
-        }
-        return s1List
-    }
-
-    fun getS2() : LiveData<List<Int>>{
-        viewModelScope.launch {
-            s2List=repository.getS2()
-        }
-        return s2List
-    }
-
-    fun getS3() : LiveData<List<Int>>{
-        viewModelScope.launch {
-            s3List=repository.getS3()
-        }
-        return s3List
-    }
-
-    fun getS4() : LiveData<List<Int>>{
-        viewModelScope.launch {
-            s4List=repository.getS4()
-        }
-        return s4List
-    }
 
 }

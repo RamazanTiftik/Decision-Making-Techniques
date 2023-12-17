@@ -5,13 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.ramazantiftik.decisionmakingtechniques.databinding.FragmentCompanyDetailScreenBinding
 import com.ramazantiftik.decisionmakingtechniques.roomdatabase.entities.CompanyData
-import com.ramazantiftik.decisionmakingtechniques.viewmodel.CalculateScreenViewModel
 import com.ramazantiftik.decisionmakingtechniques.viewmodel.CompanyDetailScreenViewModel
 
 
@@ -26,6 +24,7 @@ class CompanyDetailScreen : Fragment() {
 
     private lateinit var companyDataList: LiveData<List<CompanyData>>
 
+    //get companyName for search to data
     private var companyName=""
 
     override fun onCreateView(
@@ -54,7 +53,6 @@ class CompanyDetailScreen : Fragment() {
             binding.state4TxtDetailScreeb.text="${it[0].s4}"
 
         })
-
 
         // Inflate the layout for this fragment
         return view

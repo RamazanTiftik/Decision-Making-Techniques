@@ -39,20 +39,5 @@ class CompanyRepository @Inject constructor(
         dao.deleteCompanyData(companyName)
     }
 
-    override fun getS1(): LiveData<List<Int>> {
-        return dao.getS1()
-    }
-
-    override fun getS2(): LiveData<List<Int>> {
-        return dao.getS2()
-    }
-
-    override fun getS3(): LiveData<List<Int>> {
-        return dao.getS3()
-    }
-
-    override fun getS4(): LiveData<List<Int>> {
-        return dao.getS4()
-    }
 
 }

@@ -23,6 +23,7 @@ class CalculateScreen : Fragment() {
     private var alfa=0.0
     private var alfa2=1-alfa
 
+
     //temp values for positive btn -> getiri btn
     //iyimserlik
     private var maxValueForIyimserlikPositive=0
@@ -36,6 +37,7 @@ class CalculateScreen : Fragment() {
     //Hurwicz
     private var maxValueForHurwiczPositive=0.0
     private var maxValueCompanyNameForHurwiczPositive: String = ""
+
 
 
     //temp values for negative btn -> maliyet btn
@@ -102,9 +104,8 @@ class CalculateScreen : Fragment() {
                 }
 
                 if (alfa==0.0){
-                    println("alfa ====0 ")
+                    //do nothing
                 } else {
-                    println("alfa 1")
                     alfa2=1-alfa
                     maxValueForHurwiczPositive=(it[0].max*alfa)+(it[0].min*alfa2)
                     maxValueCompanyNameForHurwiczPositive=it[0].companyName
@@ -140,9 +141,8 @@ class CalculateScreen : Fragment() {
                     //*****HURWICZ*****
 
                     if (alfa==0.0){
-                        println("alfa = 0")
+                        //do nothing
                     } else{
-                        println("alfa 2")
                         if (maxValueForHurwiczPositive<(it.max*alfa)+(it.min*alfa2)){
                             maxValueForHurwiczPositive=(it.max*alfa)+(it.min*alfa2)
                             maxValueCompanyNameForHurwiczPositive=it.companyName
@@ -152,6 +152,7 @@ class CalculateScreen : Fragment() {
 
 
                 }
+
 
                 //*****IYIMSERLIK*****
                 binding.iyimserlikValueTxtCalculateSc2.text="$maxValueCompanyNameForIyimserlikPositive"+" ($maxValueForIyimserlikPositive)"
@@ -168,7 +169,6 @@ class CalculateScreen : Fragment() {
             })
 
         }
-
 
 
         //********** MALIYET BTN FUNC **********
@@ -201,10 +201,11 @@ class CalculateScreen : Fragment() {
                 if (alfa==0.0){
 
                 } else {
-                    alfa2=1-alfa
-                    minValueForHurwiczNegative=(it[0].min*alfa)+(it[0].max*alfa2)
-                    minValueCompanyNameForHurwiczNegative=it[0].companyName
+                    alfa2 = 1 - alfa
+                    minValueForHurwiczNegative = (it[0].min * alfa) + (it[0].max * alfa2)
+                    minValueCompanyNameForHurwiczNegative = it[0].companyName
                 }
+
 
 
                 it.forEach {
@@ -246,16 +247,6 @@ class CalculateScreen : Fragment() {
 
                     }
 
-                    /*
-                    //pişmanlık tablosu için max değer buluyor bu algoritma
-                    //bunu min yapıp diğer değerleride minden çıkarırsam aradaki farkı bulurak pişmanlığı bulabilirim
-                    if(it.s1>maxS1){
-                        maxS1=it.s1
-                        maxS1CompanyName=it.companyName
-
-
-                    }
-                     */
 
                 }
 

@@ -17,6 +17,7 @@ data class CompanyData(
     val s3: Int,
     val s4: Int,
 
+    //for calculates
     val min: Int,
     val max: Int,
     val total: Int,

@@ -29,16 +29,5 @@ interface CompanyDao {
     @Query("SELECT * FROM CompanyData WHERE companyName= :companyName")
     fun getDatasToCompany(companyName: String) : LiveData<List<CompanyData>>
 
-    @Query("SELECT s1 FROM CompanyData")
-    fun getS1() : LiveData<List<Int>>
-
-    @Query("SELECT s2 FROM CompanyData")
-    fun getS2() : LiveData<List<Int>>
-
-    @Query("SELECT s3 FROM CompanyData")
-    fun getS3() : LiveData<List<Int>>
-
-    @Query("SELECT s4 FROM CompanyData")
-    fun getS4() : LiveData<List<Int>>
 
 }

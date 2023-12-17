@@ -105,7 +105,6 @@ class HomeScreen : Fragment() {
             val dialog: AlertDialog = builder.create()
             dialog.show()
 
-
         }
 
     }

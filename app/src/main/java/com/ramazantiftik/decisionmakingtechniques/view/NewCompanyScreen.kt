@@ -107,7 +107,6 @@ class NewCompanyScreen : Fragment() {
 
         }
 
-
         // Inflate the layout for this fragment
         return view
     }
