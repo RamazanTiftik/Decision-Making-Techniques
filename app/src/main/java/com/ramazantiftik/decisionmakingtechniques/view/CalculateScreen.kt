@@ -83,93 +83,98 @@ class CalculateScreen : Fragment() {
             companyDataList=viewModel.getCompanyDataFromDB()
             companyDataList.observe(viewLifecycleOwner, Observer {
 
-                //first company is always start with
-                //iyimserlik
-                maxValueForIyimserlikPositive=it[0].max
-                maxValueCompanyNameForIyimserlikPositive=it[0].companyName
-
-                //kotumserlik
-                maxValueForKotumserlikPositive=it[0].min
-                maxValueCompanyNameForKotumserlikPositive=it[0].companyName
-
-                //es-olasilik
-                maxValueForEsOlasilikPositive=it[0].total/4.0
-                maxValueCompanyNameForEsOlasilikPositive=it[0].companyName
-
-                //*****HURWICZ*****
-                try {
-                    alfa=binding.alfaValueEdtTxtCalculateSc.text.toString().toDouble()
-                } catch (e: Exception){
-                    Toast.makeText(requireContext(),"Alfa değerini doğru formatta girin !",Toast.LENGTH_LONG).show()
-                }
-
-                if (alfa==0.0){
-                    //do nothing
+                if(it.isEmpty()){
+                    Toast.makeText(requireContext(),"Firma Ekleyiniz !",Toast.LENGTH_LONG).show()
                 } else {
-                    alfa2=1-alfa
-                    maxValueForHurwiczPositive=(it[0].max*alfa)+(it[0].min*alfa2)
-                    maxValueCompanyNameForHurwiczPositive=it[0].companyName
-                }
 
+                    //first company is always start with
+                    //iyimserlik
+                    maxValueForIyimserlikPositive=it[0].max
+                    maxValueCompanyNameForIyimserlikPositive=it[0].companyName
 
-                it.forEach {
+                    //kotumserlik
+                    maxValueForKotumserlikPositive=it[0].min
+                    maxValueCompanyNameForKotumserlikPositive=it[0].companyName
 
-                    //*****IYIMSERLIK*****
-
-                    if (maxValueForIyimserlikPositive<it.max){
-                        maxValueForIyimserlikPositive=it.max
-                        maxValueCompanyNameForIyimserlikPositive=it.companyName
-                    }
-
-
-                    //*****KOTUMSERLIK*****
-
-                    if (maxValueForKotumserlikPositive<it.min){
-                        maxValueForKotumserlikPositive=it.min
-                        maxValueCompanyNameForKotumserlikPositive=it.companyName
-                    }
-
-
-                    //*****ES OLASILIK*****
-
-                    if (maxValueForEsOlasilikPositive<it.total/4.0){
-                        maxValueForEsOlasilikPositive=it.total/4.0
-                        maxValueCompanyNameForEsOlasilikPositive=it.companyName
-                    }
-
+                    //es-olasilik
+                    maxValueForEsOlasilikPositive=it[0].total/4.0
+                    maxValueCompanyNameForEsOlasilikPositive=it[0].companyName
 
                     //*****HURWICZ*****
+                    try {
+                        alfa=binding.alfaValueEdtTxtCalculateSc.text.toString().toDouble()
+                    } catch (e: Exception){
+                        Toast.makeText(requireContext(),"Alfa değerini doğru formatta girin !",Toast.LENGTH_LONG).show()
+                    }
 
                     if (alfa==0.0){
                         //do nothing
-                    } else{
-                        if (maxValueForHurwiczPositive<(it.max*alfa)+(it.min*alfa2)){
-                            maxValueForHurwiczPositive=(it.max*alfa)+(it.min*alfa2)
-                            maxValueCompanyNameForHurwiczPositive=it.companyName
+                    } else {
+                        alfa2=1-alfa
+                        maxValueForHurwiczPositive=(it[0].max*alfa)+(it[0].min*alfa2)
+                        maxValueCompanyNameForHurwiczPositive=it[0].companyName
+                    }
+
+
+                    it.forEach {
+
+                        //*****IYIMSERLIK*****
+
+                        if (maxValueForIyimserlikPositive<it.max){
+                            maxValueForIyimserlikPositive=it.max
+                            maxValueCompanyNameForIyimserlikPositive=it.companyName
                         }
+
+
+                        //*****KOTUMSERLIK*****
+
+                        if (maxValueForKotumserlikPositive<it.min){
+                            maxValueForKotumserlikPositive=it.min
+                            maxValueCompanyNameForKotumserlikPositive=it.companyName
+                        }
+
+
+                        //*****ES OLASILIK*****
+
+                        if (maxValueForEsOlasilikPositive<it.total/4.0){
+                            maxValueForEsOlasilikPositive=it.total/4.0
+                            maxValueCompanyNameForEsOlasilikPositive=it.companyName
+                        }
+
+
+                        //*****HURWICZ*****
+
+                        if (alfa==0.0){
+                            //do nothing
+                        } else{
+                            if (maxValueForHurwiczPositive<(it.max*alfa)+(it.min*alfa2)){
+                                maxValueForHurwiczPositive=(it.max*alfa)+(it.min*alfa2)
+                                maxValueCompanyNameForHurwiczPositive=it.companyName
+                            }
+
+                        }
+
 
                     }
 
 
+                    //*****IYIMSERLIK*****
+                    binding.iyimserlikValueTxtCalculateSc2.text="$maxValueCompanyNameForIyimserlikPositive"+" ($maxValueForIyimserlikPositive)"
+
+                    //*****KOTUMSERLIK*****
+                    binding.kotumserlikValueTxtCalculateSc2.text="$maxValueCompanyNameForKotumserlikPositive"+" ($maxValueForKotumserlikPositive)"
+
+                    //*****ES-OLASILIK*****
+                    binding.esOlasilikValueTxtCalculateSc2.text="$maxValueCompanyNameForEsOlasilikPositive"+" ($maxValueForEsOlasilikPositive)"
+
+                    //*****HURWICZ*****
+                    binding.hurwiczValueTxtCalculateSc2.text="$maxValueCompanyNameForHurwiczPositive"+" ($maxValueForHurwiczPositive)"
+
                 }
 
-
-                //*****IYIMSERLIK*****
-                binding.iyimserlikValueTxtCalculateSc2.text="$maxValueCompanyNameForIyimserlikPositive"+" ($maxValueForIyimserlikPositive)"
-
-                //*****KOTUMSERLIK*****
-                binding.kotumserlikValueTxtCalculateSc2.text="$maxValueCompanyNameForKotumserlikPositive"+" ($maxValueForKotumserlikPositive)"
-
-                //*****ES-OLASILIK*****
-                binding.esOlasilikValueTxtCalculateSc2.text="$maxValueCompanyNameForEsOlasilikPositive"+" ($maxValueForEsOlasilikPositive)"
-
-                //*****HURWICZ*****
-                binding.hurwiczValueTxtCalculateSc2.text="$maxValueCompanyNameForHurwiczPositive"+" ($maxValueForHurwiczPositive)"
-
             })
-
         }
-
+        
 
         //********** MALIYET BTN FUNC **********
         binding.negativeBtnCalSc.setOnClickListener {
@@ -178,92 +183,98 @@ class CalculateScreen : Fragment() {
             companyDataList=viewModel.getCompanyDataFromDB()
             companyDataList.observe(viewLifecycleOwner, Observer {
 
-                //first company is always start with
-                //iyimserlik
-                minValueForIyimserlikNegative=it[0].min
-                minValueCompanyNameForIyimserlikNegative=it[0].companyName
-
-                //kotumserlik
-                minValueForKotumserlikNegative=it[0].max
-                minValueCompanyNameForKotumserlikNegative=it[0].companyName
-
-                //es-olasilik
-                minValueForEsOlasilikNegative=it[0].total/4.0
-                minValueCompanyNameForEsOlasilikNegative=it[0].companyName
-
-                //*****HURWICZ*****
-                try {
-                    alfa=binding.alfaValueEdtTxtCalculateSc.text.toString().toDouble()
-                } catch (e: Exception){
-                    Toast.makeText(requireContext(),"Alfa değerini doğru formatta girin !",Toast.LENGTH_LONG).show()
-                }
-
-                if (alfa==0.0){
-
+                if(it.isEmpty()){
+                    Toast.makeText(requireContext(),"Firma Ekleyiniz !",Toast.LENGTH_LONG).show()
                 } else {
-                    alfa2 = 1 - alfa
-                    minValueForHurwiczNegative = (it[0].min * alfa) + (it[0].max * alfa2)
-                    minValueCompanyNameForHurwiczNegative = it[0].companyName
-                }
 
+                    //first company is always start with
+                    //iyimserlik
+                    minValueForIyimserlikNegative=it[0].min
+                    minValueCompanyNameForIyimserlikNegative=it[0].companyName
 
+                    //kotumserlik
+                    minValueForKotumserlikNegative=it[0].max
+                    minValueCompanyNameForKotumserlikNegative=it[0].companyName
 
-                it.forEach {
-
-                    //*****IYIMSERLIK*****
-
-                    if (minValueForIyimserlikNegative>it.min){
-                        minValueForIyimserlikNegative=it.min
-                        minValueCompanyNameForIyimserlikNegative=it.companyName
-                    }
-
-
-                    //*****KOTUMSERLIK*****
-
-                    if (minValueForKotumserlikNegative>it.max){
-                        minValueForKotumserlikNegative=it.max
-                        minValueCompanyNameForKotumserlikNegative=it.companyName
-                    }
-
-
-                    //*****ES OLASILIK*****
-
-                    if (minValueForEsOlasilikNegative>it.total/4.0){
-                        minValueForEsOlasilikNegative=it.total/4.0
-                        minValueCompanyNameForEsOlasilikNegative=it.companyName
-                    }
-
+                    //es-olasilik
+                    minValueForEsOlasilikNegative=it[0].total/4.0
+                    minValueCompanyNameForEsOlasilikNegative=it[0].companyName
 
                     //*****HURWICZ*****
+                    try {
+                        alfa=binding.alfaValueEdtTxtCalculateSc.text.toString().toDouble()
+                    } catch (e: Exception){
+                        Toast.makeText(requireContext(),"Alfa değerini doğru formatta girin !",Toast.LENGTH_LONG).show()
+                    }
 
                     if (alfa==0.0){
 
-                    } else{
-
-                        if (minValueForHurwiczNegative>(it.min*alfa)+(it.max*alfa2)){
-                            minValueForHurwiczNegative=(it.min*alfa)+(it.max*alfa2)
-                            minValueCompanyNameForHurwiczNegative=it.companyName
-                        }
-
+                    } else {
+                        alfa2 = 1 - alfa
+                        minValueForHurwiczNegative = (it[0].min * alfa) + (it[0].max * alfa2)
+                        minValueCompanyNameForHurwiczNegative = it[0].companyName
                     }
 
 
+
+                    it.forEach {
+
+                        //*****IYIMSERLIK*****
+
+                        if (minValueForIyimserlikNegative>it.min){
+                            minValueForIyimserlikNegative=it.min
+                            minValueCompanyNameForIyimserlikNegative=it.companyName
+                        }
+
+
+                        //*****KOTUMSERLIK*****
+
+                        if (minValueForKotumserlikNegative>it.max){
+                            minValueForKotumserlikNegative=it.max
+                            minValueCompanyNameForKotumserlikNegative=it.companyName
+                        }
+
+
+                        //*****ES OLASILIK*****
+
+                        if (minValueForEsOlasilikNegative>it.total/4.0){
+                            minValueForEsOlasilikNegative=it.total/4.0
+                            minValueCompanyNameForEsOlasilikNegative=it.companyName
+                        }
+
+
+                        //*****HURWICZ*****
+
+                        if (alfa==0.0){
+
+                        } else{
+
+                            if (minValueForHurwiczNegative>(it.min*alfa)+(it.max*alfa2)){
+                                minValueForHurwiczNegative=(it.min*alfa)+(it.max*alfa2)
+                                minValueCompanyNameForHurwiczNegative=it.companyName
+                            }
+
+                        }
+
+
+                    }
+
+                    //*****IYIMSERLIK*****
+                    binding.iyimserlikValueTxtCalculateSc2.text="$minValueCompanyNameForIyimserlikNegative"+" ($minValueForIyimserlikNegative)"
+
+                    //*****KOTUMSERLIK*****
+                    binding.kotumserlikValueTxtCalculateSc2.text="$minValueCompanyNameForKotumserlikNegative"+" ($minValueForKotumserlikNegative)"
+
+                    //*****ES-OLASILIK*****
+                    binding.esOlasilikValueTxtCalculateSc2.text="$minValueCompanyNameForEsOlasilikNegative"+" ($minValueForEsOlasilikNegative)"
+
+                    //*****HURWICZ*****
+                    binding.hurwiczValueTxtCalculateSc2.text="$minValueCompanyNameForHurwiczNegative"+" ($minValueForHurwiczNegative)"
+
                 }
 
-                //*****IYIMSERLIK*****
-                binding.iyimserlikValueTxtCalculateSc2.text="$minValueCompanyNameForIyimserlikNegative"+" ($minValueForIyimserlikNegative)"
-
-                //*****KOTUMSERLIK*****
-                binding.kotumserlikValueTxtCalculateSc2.text="$minValueCompanyNameForKotumserlikNegative"+" ($minValueForKotumserlikNegative)"
-
-                //*****ES-OLASILIK*****
-                binding.esOlasilikValueTxtCalculateSc2.text="$minValueCompanyNameForEsOlasilikNegative"+" ($minValueForEsOlasilikNegative)"
-
-                //*****HURWICZ*****
-                binding.hurwiczValueTxtCalculateSc2.text="$minValueCompanyNameForHurwiczNegative"+" ($minValueForHurwiczNegative)"
 
             })
-
 
         }
 
